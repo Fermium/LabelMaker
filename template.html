@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+    body{
+    width:57mm;
+    height:32mm;      
+    }
+    #container{
+      position:realtive;
+      width:57mm;
+      height:32mm;
+    }
+
+    #container #qrcode{
+      position:relative;
+      left:0;
+      float:left;
+    }
+
+    #container #content{
+      position:relative;
+      margin-left: 27mm;
+      top:-4mm;
+      width:30mm;
+    }
+
+    table{
+      width:30mm;
+    }
+
+    td{
+      text-align: center;
+    }
+
+    #logo{
+      height:14mm;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="qrcode"></div>
+      <div id='content'>
+        <table>
+          <tr id='logo'>
+            <td><img src='Assets/ltk.png' width="33.46" height="30"> <img src='Assets/frm.png' width="32" height="30"></td>
+          </tr>
+          <tr>
+            <td>{{sku}}</td>
+          </tr>
+          <tr>
+            <td>{{serial}}</td>
+          </tr>
+          <tr>
+            <td>{{test_date}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+    $('#qrcode').qrcode({width:102,height:102,text:"{{serial}}"});
+    </script>
+  </body>
+</html>
